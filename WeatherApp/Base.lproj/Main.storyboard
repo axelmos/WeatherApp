@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uFv-MI-jFV">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--by Axel Mosiejko-->
+        <scene sceneID="4ZT-LO-hxo">
+            <objects>
+                <tableViewController id="chV-wh-73k" customClass="MainViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bTZ-dH-Hrr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6J0-Lm-hXh">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6J0-Lm-hXh" id="Pko-3I-cSB">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="chV-wh-73k" id="Ngu-QM-spq"/>
+                            <outlet property="delegate" destination="chV-wh-73k" id="z12-kk-v87"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="by Axel Mosiejko" id="Yxf-cY-WpG"/>
+                    <connections>
+                        <segue destination="Z7e-Tf-Rpq" kind="show" identifier="showMapSegue" id="aZn-8p-yNU"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rRD-7C-Dg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="627" y="12"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="JOY-n4-YKm">
+            <objects>
+                <viewController id="Z7e-Tf-Rpq" customClass="MapViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aDw-W6-69a">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btM-uI-mXY">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oM0-qS-fFm">
+                                <rect key="frame" x="15" y="766" width="363" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presionar y mantener en el mapa para guardar ubicación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8X-kp-x4r">
+                                        <rect key="frame" x="22" y="8" width="319" height="14.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.60127154499495106" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="M8X-kp-x4r" firstAttribute="centerX" secondItem="oM0-qS-fFm" secondAttribute="centerX" id="DJG-GQ-Jst"/>
+                                    <constraint firstAttribute="height" constant="30" id="ipR-5D-Sc6"/>
+                                    <constraint firstItem="M8X-kp-x4r" firstAttribute="centerY" secondItem="oM0-qS-fFm" secondAttribute="centerY" id="pNW-Lk-YvA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YhR-Zs-wdy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YhR-Zs-wdy" firstAttribute="bottom" secondItem="btM-uI-mXY" secondAttribute="bottom" id="8oq-1Z-2EM"/>
+                            <constraint firstItem="YhR-Zs-wdy" firstAttribute="trailing" secondItem="btM-uI-mXY" secondAttribute="trailing" id="EeR-2O-lqd"/>
+                            <constraint firstItem="btM-uI-mXY" firstAttribute="top" secondItem="YhR-Zs-wdy" secondAttribute="top" id="XWp-hW-NF8"/>
+                            <constraint firstItem="YhR-Zs-wdy" firstAttribute="trailing" secondItem="oM0-qS-fFm" secondAttribute="trailing" constant="15" id="XlG-V9-j9x"/>
+                            <constraint firstItem="oM0-qS-fFm" firstAttribute="leading" secondItem="YhR-Zs-wdy" secondAttribute="leading" constant="15" id="Zw5-sA-m5u"/>
+                            <constraint firstItem="btM-uI-mXY" firstAttribute="leading" secondItem="YhR-Zs-wdy" secondAttribute="leading" id="f5I-KH-JXF"/>
+                            <constraint firstItem="YhR-Zs-wdy" firstAttribute="bottom" secondItem="oM0-qS-fFm" secondAttribute="bottom" constant="22" id="xy9-To-Npu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Eu-mz-VK6"/>
+                    <connections>
+                        <outlet property="mapView" destination="btM-uI-mXY" id="sJV-KG-VCB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CiP-pX-tZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1467.9389312977098" y="11.971830985915494"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RfO-T5-HGt">
+            <objects>
+                <navigationController id="uFv-MI-jFV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dgf-Aj-A8P">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="chV-wh-73k" kind="relationship" relationship="rootViewController" id="jZa-HP-e7O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJ7-WX-kQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279" y="12"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
